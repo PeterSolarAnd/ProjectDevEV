@@ -55,65 +55,36 @@ class SearchListFragment : Fragment() {
                 }
             }
         })
+
         viewLifecycleOwner.lifecycleScope.launch {
             repeatOnLifecycle(Lifecycle.State.STARTED) {
-                //progressBar?.visibility = View.GONE
-                viewModel.listOfItems.observe(
-                    viewLifecycleOwner
-                ) {
-                    val adapter =
-                        SearchRecycleAdapter(it, object : SearchRecycleAdapter.OnAdapterListener {
-                            override fun onClick(address: EvPointDetails) {
-                                val AddressLine1 = address.AddressInfo?.AddressLine1
-                                val AddressLine2 = address.AddressInfo?.AddressLine2
-                                val Longitude = address.AddressInfo?.Longitude
-                                val Latitude = address.AddressInfo?.Latitude
-                                val Title = address.AddressInfo?.Title
-                                val PostCode = address.AddressInfo?.Postcode
-                                val Town = address.AddressInfo?.Town
-                                val UsageCost = address.UsageCost
-                                val NumberOfPoints = address.NumberOfPoints
-                                val dataUpdate = address.DateLastStatusUpdate
-                                val Connection = address.Connection
+                val adapter = viewModel.getAdapter()
 
-                                val selectedPoint = ItemDataConverter(
-                                    AddressLine1,
-                                    AddressLine2,
-                                    Longitude,
-                                    Latitude,
-                                    Title,
-                                    PostCode,
-                                    Town,
-                                    UsageCost,
-                                    NumberOfPoints,
-                                    dataUpdate,
-                                    Connection
-                                )
-                                setFragmentResult("requestKey",
-                                    bundleOf("data" to selectedPoint))
-                                val navHostFragment =
-                                    activity?.supportFragmentManager?.
-                                    findFragmentById(R.id.nav_host_fragment) as NavHostFragment
-                                val navController = navHostFragment.navController
-                                navController.navigate(R.id.detailFragment)
-                            }
-                        })
-                    if (recyclerView != null) {
-                        recyclerView.layoutManager =
-                            StaggeredGridLayoutManager(1, StaggeredGridLayoutManager.VERTICAL)
-                        recyclerView.adapter = adapter
-                    }
+                setFragmentResult(
+                    "requestKey",
+                    bundleOf("data" to viewModel.selectedPoint)
+                )
+                val navHostFragment =
+                    activity?.supportFragmentManager?.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
+                val navController = navHostFragment.navController
+                navController.navigate(R.id.detailFragment)
+
+
+                if (recyclerView != null) {
+                    recyclerView.layoutManager =
+                        StaggeredGridLayoutManager(1, StaggeredGridLayoutManager.VERTICAL)
+                    recyclerView.adapter = adapter
                 }
             }
+
         }
         return view
     }
-
-    /*private fun showLoading(loading: Boolean) {
-        when (loading) {
-            true -> progressBar?.visibility = View.VISIBLE
-            false -> progressBar?.visibility = View.GONE
-        }
-    }*/
-
 }
+
+/*private fun showLoading(loading: Boolean) {
+    when (loading) {
+        true -> progressBar?.visibility = View.VISIBLE
+        false -> progressBar?.visibility = View.GONE
+    }
+}*/

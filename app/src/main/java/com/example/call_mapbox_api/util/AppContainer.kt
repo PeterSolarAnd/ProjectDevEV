@@ -1,6 +1,7 @@
 package com.example.call_mapbox_api.util
 
 import com.example.call_mapbox_api.api.OpenMapApi
+import com.example.call_mapbox_api.domain.SearchListUseCase
 import com.example.call_mapbox_api.homescreen.data.EvPointDataSource
 import com.example.call_mapbox_api.homescreen.data.SearchListRepository
 import okhttp3.OkHttpClient
@@ -30,6 +31,10 @@ class AppContainer{
     fun getRemoteDataSource(): EvPointDataSource {
         return EvPointDataSource(getRetrofitResult().create(OpenMapApi::class.java))
     }
+    fun getSearchListUseCase(): SearchListUseCase {
+        return SearchListUseCase(getRepository())
+    }
+
     fun getRepository(): SearchListRepository {
         return SearchListRepository(getRemoteDataSource())
     }
