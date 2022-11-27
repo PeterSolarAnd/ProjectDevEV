@@ -35,6 +35,7 @@ class AppContainer{
         return SearchListUseCase(getRepository())
     }
 
+
     fun getRepository(): SearchListRepository {
         return SearchListRepository(getRemoteDataSource())
     }

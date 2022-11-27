@@ -1,19 +1,11 @@
 package com.example.call_mapbox_api.homescreen.ui
 
-import androidx.core.os.bundleOf
-import androidx.fragment.app.setFragmentResult
-import androidx.lifecycle.*
-import com.example.call_mapbox_api.homescreen.data.SearchListRepository
+
 import com.example.call_mapbox_api.model.EvPointDetails
-import kotlinx.coroutines.launch
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import androidx.lifecycle.createSavedStateHandle
 import androidx.lifecycle.viewmodel.CreationExtras
-import androidx.navigation.fragment.NavHostFragment
-import androidx.recyclerview.widget.RecyclerView
 import com.example.call_mapbox_api.MyApplication
-import com.example.call_mapbox_api.R
 import com.example.call_mapbox_api.domain.SearchListUseCase
 import com.example.call_mapbox_api.homescreen.data.SearchRecycleAdapter
 import com.example.call_mapbox_api.util.ItemDataConverter
@@ -24,25 +16,13 @@ class SearchListViewModel(
     private val searchListUseCase: SearchListUseCase
 ) : ViewModel() {
 
-    //var listOfItems = MutableLiveData<List<EvPointDetails>>()
+    var selectedPoint: ItemDataConverter? = null
+    private var adapter: SearchRecycleAdapter? = null
 
-    // I do not think this would work like this !!!!!
-    lateinit var selectedPoint: ItemDataConverter
+    suspend fun getAdapter(): SearchRecycleAdapter? {
+        val getListOfItems = searchListUseCase()
 
-    init {
-        viewModelScope.launch {
-            getElements()
-        }
-    }
-
-    suspend fun getElements() {
-        return searchListUseCase.getColletedItems()
-    }
-
-
-    // I need List<EvPointDetails> instead of "it" in SearchRecycleAdapter
-    fun getAdapter(): SearchRecycleAdapter {
-        searchListUseCase.listOfItems.apply {
+        adapter = getListOfItems.value?.let {
             SearchRecycleAdapter(it, object : SearchRecycleAdapter.OnAdapterListener {
                 override fun onClick(address: EvPointDetails) {
                     val AddressLine1 = address.AddressInfo?.AddressLine1
@@ -73,6 +53,7 @@ class SearchListViewModel(
                 }
             })
         }
+        return adapter
     }
 
     //Define ViewModel factory in a companion object
