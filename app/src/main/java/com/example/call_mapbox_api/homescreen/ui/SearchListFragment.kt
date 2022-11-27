@@ -59,7 +59,8 @@ class SearchListFragment : Fragment() {
         viewLifecycleOwner.lifecycleScope.launch {
             repeatOnLifecycle(Lifecycle.State.STARTED) {
                 val adapter = viewModel.getAdapter()
-
+                println("no adapter wwwwww: $adapter")
+                
                 setFragmentResult(
                     "requestKey",
                     bundleOf("data" to viewModel.selectedPoint)
@@ -70,11 +71,11 @@ class SearchListFragment : Fragment() {
                 navController.navigate(R.id.detailFragment)
 
 
-                if (recyclerView != null) {
+                //if (adapter != null) {
                     recyclerView.layoutManager =
                         StaggeredGridLayoutManager(1, StaggeredGridLayoutManager.VERTICAL)
                     recyclerView.adapter = adapter
-                }
+               // }
             }
 
         }
