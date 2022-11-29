@@ -11,7 +11,6 @@ import com.example.call_mapbox_api.domain.SearchListUseCase
 import kotlinx.coroutines.launch
 
 class SearchListViewModel(
-    //private val searchListRepository: SearchListRepository,
     private val searchListUseCase: SearchListUseCase
 ) : ViewModel() {
 
@@ -24,8 +23,8 @@ class SearchListViewModel(
     }
 
     suspend fun getListUseCase() {
-        searchListUseCase.invoke().collect{
-            items -> listOfItems.postValue(items)
+        searchListUseCase.invoke().collect { items ->
+            listOfItems.postValue(items)
         }
     }
 

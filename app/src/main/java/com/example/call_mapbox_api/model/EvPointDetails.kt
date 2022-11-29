@@ -1,6 +1,5 @@
 package com.example.call_mapbox_api.model
 
-import com.example.call_mapbox_api.Connection
 import com.example.call_mapbox_api.remote.AddressInfoX
 import com.example.call_mapbox_api.remote.ConnectionX
 import com.example.call_mapbox_api.remote.EvPointsBrakeItemX

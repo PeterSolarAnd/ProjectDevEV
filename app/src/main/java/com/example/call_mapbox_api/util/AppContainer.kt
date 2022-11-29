@@ -11,7 +11,7 @@ import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
-class AppContainer{
+class AppContainer {
 
     fun getRetrofitResult(): Retrofit {
         val mHttpLoggingInterceptor = HttpLoggingInterceptor()
@@ -30,18 +30,20 @@ class AppContainer{
         }
         return retrofit
     }
-    fun getRemoteDataSource(): EvPointDataSource {
+
+    private fun getRemoteDataSource(): EvPointDataSource {
         return EvPointDataSource(getRetrofitResult().create(OpenMapApi::class.java))
     }
 
-    fun getDispacher(): CoroutineDispatcher {
+    private fun getDispatcher(): CoroutineDispatcher {
         return Dispatchers.Default
     }
 
     fun getSearchListUseCase(): SearchListUseCase {
-        return SearchListUseCase(getRepository(), getDispacher())
+        return SearchListUseCase(getRepository(), getDispatcher())
     }
-    fun getRepository(): SearchListRepository {
+
+    private fun getRepository(): SearchListRepository {
         return SearchListRepository(getRemoteDataSource())
     }
 }

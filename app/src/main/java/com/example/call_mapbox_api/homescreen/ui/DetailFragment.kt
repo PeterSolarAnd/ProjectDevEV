@@ -1,6 +1,5 @@
 package com.example.call_mapbox_api.homescreen.ui
 
-import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View

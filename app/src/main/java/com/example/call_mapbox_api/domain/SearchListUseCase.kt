@@ -1,6 +1,5 @@
 package com.example.call_mapbox_api.domain
 
-import androidx.lifecycle.MutableLiveData
 import com.example.call_mapbox_api.homescreen.data.ISearchListRepository
 import com.example.call_mapbox_api.model.EvPointDetails
 import com.example.call_mapbox_api.model.toEvPointDetails
