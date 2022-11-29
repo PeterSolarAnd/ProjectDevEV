@@ -4,6 +4,8 @@ import com.example.call_mapbox_api.api.OpenMapApi
 import com.example.call_mapbox_api.domain.SearchListUseCase
 import com.example.call_mapbox_api.homescreen.data.EvPointDataSource
 import com.example.call_mapbox_api.homescreen.data.SearchListRepository
+import kotlinx.coroutines.CoroutineDispatcher
+import kotlinx.coroutines.Dispatchers
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
@@ -31,11 +33,14 @@ class AppContainer{
     fun getRemoteDataSource(): EvPointDataSource {
         return EvPointDataSource(getRetrofitResult().create(OpenMapApi::class.java))
     }
-    fun getSearchListUseCase(): SearchListUseCase {
-        return SearchListUseCase(getRepository())
+
+    fun getDispacher(): CoroutineDispatcher {
+        return Dispatchers.Default
     }
 
-
+    fun getSearchListUseCase(): SearchListUseCase {
+        return SearchListUseCase(getRepository(), getDispacher())
+    }
     fun getRepository(): SearchListRepository {
         return SearchListRepository(getRemoteDataSource())
     }

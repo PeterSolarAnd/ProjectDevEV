@@ -23,8 +23,6 @@ class SearchRecycleAdapter(
      * Provide a reference to the type of views that you are using
      * (custom ViewHolder).
      */
-    private var onSelect: List<EvPointDetails>? = null
-
     inner class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
 
         val textView: TextView

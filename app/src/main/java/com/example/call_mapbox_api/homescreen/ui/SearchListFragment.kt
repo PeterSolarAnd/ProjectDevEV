@@ -20,7 +20,6 @@ import com.example.call_mapbox_api.R
 import com.example.call_mapbox_api.databinding.FragmentSearchListBinding
 import com.example.call_mapbox_api.homescreen.data.SearchRecycleAdapter
 import com.example.call_mapbox_api.model.EvPointDetails
-import com.example.call_mapbox_api.toConnections
 import com.example.call_mapbox_api.util.ItemDataConverter
 import kotlinx.coroutines.launch
 
@@ -28,8 +27,6 @@ class SearchListFragment : Fragment() {
 
     private val viewModel: SearchListViewModel by viewModels { SearchListViewModel.Factory }
     private var fragmentSearchlistBinding: FragmentSearchListBinding? = null
-    //val progressBar = view?.findViewById<RecyclerView>(R.id.progressBar)
-
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -58,34 +55,40 @@ class SearchListFragment : Fragment() {
 
         viewLifecycleOwner.lifecycleScope.launch {
             repeatOnLifecycle(Lifecycle.State.STARTED) {
-                val adapter = viewModel.getAdapter()
-                println("no adapter wwwwww: $adapter")
-                
-                setFragmentResult(
-                    "requestKey",
-                    bundleOf("data" to viewModel.selectedPoint)
-                )
-                val navHostFragment =
-                    activity?.supportFragmentManager?.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
-                val navController = navHostFragment.navController
-                navController.navigate(R.id.detailFragment)
-
-
-                //if (adapter != null) {
+                viewModel.listOfItems.observe(viewLifecycleOwner) {
+                    val adapter = SearchRecycleAdapter(it, object : SearchRecycleAdapter.OnAdapterListener {
+                        override fun onClick(address: EvPointDetails) {
+                            val selectedPoint = ItemDataConverter(
+                                address.AddressInfo?.AddressLine1,
+                                address.AddressInfo?.AddressLine2,
+                                address.AddressInfo?.Longitude,
+                                address.AddressInfo?.Latitude,
+                                address.AddressInfo?.Title,
+                                address.AddressInfo?.Postcode,
+                                address.AddressInfo?.Town,
+                                address.UsageCost,
+                                address.NumberOfPoints,
+                                address.DateLastStatusUpdate,
+                                address.Connection
+                            )
+                            setFragmentResult(
+                                "requestKey",
+                                bundleOf("data" to selectedPoint)
+                            )
+                            val navHostFragment =
+                                activity?.supportFragmentManager?.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
+                            val navController = navHostFragment.navController
+                            navController.navigate(R.id.detailFragment)
+                        }
+                    })
                     recyclerView.layoutManager =
                         StaggeredGridLayoutManager(1, StaggeredGridLayoutManager.VERTICAL)
                     recyclerView.adapter = adapter
-               // }
+                }
+
             }
 
         }
         return view
     }
 }
-
-/*private fun showLoading(loading: Boolean) {
-    when (loading) {
-        true -> progressBar?.visibility = View.VISIBLE
-        false -> progressBar?.visibility = View.GONE
-    }
-}*/
