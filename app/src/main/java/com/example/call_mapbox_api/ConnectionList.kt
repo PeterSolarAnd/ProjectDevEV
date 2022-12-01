@@ -1,7 +1,6 @@
 package com.example.call_mapbox_api
 
 import android.os.Parcelable
-import com.example.call_mapbox_api.remote.ConnectionX
 import kotlinx.parcelize.Parcelize
 
 @Parcelize
@@ -22,7 +21,7 @@ data class Connection(
     val StatusTypeID: Int?
 ) : Parcelable
 
-fun List<ConnectionX>.toConnections() : Array<Connection> {
+fun List<Connection>.toConnections() : Array<Connection> {
     return this.map {
         Connection(
             ConnectionTypeID = it.ConnectionTypeID,

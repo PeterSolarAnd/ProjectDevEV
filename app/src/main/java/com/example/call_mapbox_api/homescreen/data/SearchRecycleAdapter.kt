@@ -23,19 +23,15 @@ class SearchRecycleAdapter(
      * Provide a reference to the type of views that you are using
      * (custom ViewHolder).
      */
-    private var onSelect: List<EvPointDetails>? = null
-
     inner class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
 
         val textView: TextView
         val goButton = view.findViewById<Button>(R.id.button_go)
 
         init {
-
             // Define click listener for the ViewHolder's View.
             textView = view.findViewById(R.id.list_view)
         }
-
     }
 
     override fun onCreateViewHolder(viewGroup: ViewGroup, viewType: Int): ViewHolder {
