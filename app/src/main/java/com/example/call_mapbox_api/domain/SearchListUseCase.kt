@@ -1,5 +1,6 @@
 package com.example.call_mapbox_api.domain
 
+import androidx.lifecycle.MutableLiveData
 import com.example.call_mapbox_api.homescreen.data.ISearchListRepository
 import com.example.call_mapbox_api.model.EvPointDetails
 import com.example.call_mapbox_api.model.toEvPointDetails
@@ -18,8 +19,6 @@ class SearchListUseCase (
         withContext(dispatcher) {
             searchListRepository.fetchList().map { items -> items.toEvPointDetails() }
             }
-
-        // TODO: map data models to item view models
     }
 
 interface ISearchListUseCase {

@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.call_mapbox_api.R
 import com.example.call_mapbox_api.remote.ConnectionX
 
+
 class DetailRecycleAdapter(private val connectionsItemList: List<ConnectionX>):
     RecyclerView.Adapter<DetailRecycleAdapter.MainViewHolder>(){
 

@@ -18,7 +18,6 @@ import com.example.call_mapbox_api.util.ItemDataConverter
 
 class DetailFragment : Fragment() {
 
-    private lateinit var listDataConvert: ArrayList<Connection>
     private var fragmentDetailBinding: FragmentDetailBinding? = null
 
     override fun onCreateView(

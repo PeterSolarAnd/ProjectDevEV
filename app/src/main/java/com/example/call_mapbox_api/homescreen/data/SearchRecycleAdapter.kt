@@ -29,11 +29,9 @@ class SearchRecycleAdapter(
         val goButton = view.findViewById<Button>(R.id.button_go)
 
         init {
-
             // Define click listener for the ViewHolder's View.
             textView = view.findViewById(R.id.list_view)
         }
-
     }
 
     override fun onCreateViewHolder(viewGroup: ViewGroup, viewType: Int): ViewHolder {

@@ -1,6 +1,7 @@
 package com.example.call_mapbox_api.util
 
 import com.example.call_mapbox_api.api.OpenMapApi
+import com.example.call_mapbox_api.domain.SearchListUseCase
 import com.example.call_mapbox_api.homescreen.data.EvPointDataSource
 import com.example.call_mapbox_api.homescreen.data.SearchListRepository
 import kotlinx.coroutines.CoroutineDispatcher
@@ -10,7 +11,7 @@ import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
-class AppContainer {
+class AppContainer{
 
     fun getRetrofitResult(): Retrofit {
         val mHttpLoggingInterceptor = HttpLoggingInterceptor()
@@ -29,24 +30,18 @@ class AppContainer {
         }
         return retrofit
     }
-
-    private fun getRemoteDataSource(): EvPointDataSource {
+    fun getRemoteDataSource(): EvPointDataSource {
         return EvPointDataSource(getRetrofitResult().create(OpenMapApi::class.java))
     }
-<<<<<<< HEAD
 
-    private fun getDispatcher(): CoroutineDispatcher {
+    fun getDispacher(): CoroutineDispatcher {
         return Dispatchers.Default
     }
 
     fun getSearchListUseCase(): SearchListUseCase {
-        return SearchListUseCase(getRepository(), getDispatcher())
+        return SearchListUseCase(getRepository(), getDispacher())
     }
-
-    private fun getRepository(): SearchListRepository {
-=======
     fun getRepository(): SearchListRepository {
->>>>>>> parent of b0d731e (UseCase)
         return SearchListRepository(getRemoteDataSource())
     }
 }
