@@ -1,7 +1,6 @@
 package com.example.call_mapbox_api.util
 
 import com.example.call_mapbox_api.api.OpenMapApi
-import com.example.call_mapbox_api.domain.SearchListUseCase
 import com.example.call_mapbox_api.homescreen.data.EvPointDataSource
 import com.example.call_mapbox_api.homescreen.data.SearchListRepository
 import kotlinx.coroutines.CoroutineDispatcher
@@ -34,6 +33,7 @@ class AppContainer {
     private fun getRemoteDataSource(): EvPointDataSource {
         return EvPointDataSource(getRetrofitResult().create(OpenMapApi::class.java))
     }
+<<<<<<< HEAD
 
     private fun getDispatcher(): CoroutineDispatcher {
         return Dispatchers.Default
@@ -44,6 +44,9 @@ class AppContainer {
     }
 
     private fun getRepository(): SearchListRepository {
+=======
+    fun getRepository(): SearchListRepository {
+>>>>>>> parent of b0d731e (UseCase)
         return SearchListRepository(getRemoteDataSource())
     }
 }
