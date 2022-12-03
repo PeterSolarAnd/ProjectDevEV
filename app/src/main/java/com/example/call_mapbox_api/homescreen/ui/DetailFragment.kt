@@ -6,30 +6,31 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.setFragmentResultListener
+import androidx.fragment.app.activityViewModels
+import androidx.fragment.app.viewModels
+import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.map
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
-import com.example.call_mapbox_api.Connection
 import com.example.call_mapbox_api.R
 import com.example.call_mapbox_api.databinding.FragmentDetailBinding
 import com.example.call_mapbox_api.homescreen.data.DetailRecycleAdapter
-import com.example.call_mapbox_api.util.ItemDataConverter
 
 
 class DetailFragment : Fragment() {
 
     private var fragmentDetailBinding: FragmentDetailBinding? = null
+    private val viewModel: SearchListViewModel by activityViewModels {SearchListViewModel.Factory}
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
+
         val binding = FragmentDetailBinding.inflate(inflater, container, false)
         val view = binding.root
         fragmentDetailBinding = binding
-
-        setFragmentResultListener("requestKey") { key, bundle ->
-            val result = bundle.getSerializable("data") as ItemDataConverter
+        viewModel.getDetailItems().observe(viewLifecycleOwner) {
 
             val add1 = view.findViewById<TextView>(R.id.addressline1)
             val add2 = view.findViewById<TextView>(R.id.addressline2)
@@ -42,27 +43,23 @@ class DetailFragment : Fragment() {
             val lat = view.findViewById<TextView>(R.id.longitude)
             val lastUpdate = view.findViewById<TextView>(R.id.dateLastStatusUpdate)
 
-            add1.text = result.AddressLine1
-            add2.text = result.AddressLine2
-            town.text = result.Town
-            tile.text = result.Postcode
-            cost.text = result.UsageCost
-            bays.text = result.NumberOfPoints.toString()
-            postCode.text = result.Title
-            lon.text = result.Longitude.toString()
-            lat.text = result.Latitude.toString()
-            lastUpdate.text = result.DateLastStatusUpdate
+            add1.text = it.AddressLine1
+            add2.text = it.AddressLine2
+            town.text = it.Town
+            tile.text = it.Postcode
+            cost.text = it.UsageCost
+            bays.text = it.NumberOfPoints.toString()
+            postCode.text = it.Title
+            lon.text = it.Longitude.toString()
+            lat.text = it.Latitude.toString()
+            lastUpdate.text = it?.DateLastStatusUpdate
 
-            val adapter = result.Connection?.let { DetailRecycleAdapter(it) }
+            val adapter = it?.Connection?.let { DetailRecycleAdapter(it) }
             val recyclerView = view.findViewById<RecyclerView>(R.id.connection_recycler)
             recyclerView.layoutManager =
                 StaggeredGridLayoutManager(1, StaggeredGridLayoutManager.VERTICAL)
             recyclerView.adapter = adapter
-
         }
-
         return view
     }
-
-
 }

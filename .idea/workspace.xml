@@ -10,8 +10,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5157720d-b202-4543-9f08-069fd3a726ab" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/7.3.3/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.3.3/executionHistory/executionHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/7.3.3/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.3.3/executionHistory/executionHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/7.3.3/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.3.3/fileHashes/fileHashes.bin" afterDir="false" />
@@ -21,23 +19,20 @@
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/file-system.probe" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/file-system.probe" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/call_mapbox_api/ConnectionList.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/call_mapbox_api/ConnectionList.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/call_mapbox_api/MyApplication.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/call_mapbox_api/MyApplication.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/call_mapbox_api/api/RetrofitClient.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/call_mapbox_api/api/OpenMapApi.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/call_mapbox_api/api/OpenMapApi.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/call_mapbox_api/domain/SearchListUseCase.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/call_mapbox_api/domain/SearchListUseCase.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/call_mapbox_api/homescreen/data/DetailRecycleAdapter.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/call_mapbox_api/homescreen/data/DetailRecycleAdapter.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/call_mapbox_api/homescreen/data/EvPointDataSource.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/call_mapbox_api/homescreen/data/EvPointDataSource.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/call_mapbox_api/homescreen/data/SearchListRepository.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/call_mapbox_api/homescreen/data/SearchListRepository.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/call_mapbox_api/homescreen/data/SearchRecycleAdapter.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/call_mapbox_api/homescreen/data/SearchRecycleAdapter.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/call_mapbox_api/homescreen/ui/DetailFragment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/call_mapbox_api/homescreen/ui/DetailFragment.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/call_mapbox_api/homescreen/ui/MainActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/call_mapbox_api/homescreen/ui/MainActivity.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/call_mapbox_api/homescreen/ui/MapBarFragment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/call_mapbox_api/homescreen/ui/MapBarFragment.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/call_mapbox_api/homescreen/ui/SearchListFragment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/call_mapbox_api/homescreen/ui/SearchListFragment.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/call_mapbox_api/homescreen/ui/SearchListViewModel.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/call_mapbox_api/homescreen/ui/SearchListViewModel.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/call_mapbox_api/model/EvPointDetails.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/call_mapbox_api/model/EvPointDetails.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/call_mapbox_api/remote/AddressInfo.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/call_mapbox_api/remote/Connection.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/call_mapbox_api/util/AppContainer.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/call_mapbox_api/util/AppContainer.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/call_mapbox_api/remote/AddressInfoX.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/call_mapbox_api/remote/ConnectionX.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/call_mapbox_api/remote/EvPointsBrakeItemX.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/call_mapbox_api/remote/EvPointsBrakeX.kt" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/call_mapbox_api/util/ItemDataConverter.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/call_mapbox_api/util/ItemDataConverter.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />

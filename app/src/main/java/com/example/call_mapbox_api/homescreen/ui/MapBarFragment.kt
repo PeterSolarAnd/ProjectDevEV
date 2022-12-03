@@ -39,7 +39,6 @@ class MapBarFragment : Fragment() {
                 navController.navigate(R.id.searchlistFragment)
             }
         })
-
         return view
     }
 }

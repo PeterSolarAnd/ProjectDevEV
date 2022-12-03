@@ -10,9 +10,9 @@ import kotlinx.serialization.Serializable
 //@Parcelize
 //@JsonClass(generateAdapter = true)
 @Serializable
-data class EvPointsBrakeItemX(
-    val AddressInfo: AddressInfoX?,
-    val Connections: List<ConnectionX>?,
+data class EvPointsBrakeItem(
+    val AddressInfo: AddressInfo,
+    val Connections: List<Connection>?,
     val DataProviderID: Int?,
     val DataQualityLevel: Int?,
     val DateCreated: String?,
@@ -32,7 +32,7 @@ data class EvPointsBrakeItemX(
 
 
 
-fun List<EvPointsBrakeItemX>.toEvPointIds() : List<EvPointIds> {
+fun List<EvPointsBrakeItem>.toEvPointIds() : List<EvPointIds> {
     return this.map {
         EvPointIds(
             ID = it.ID
@@ -40,7 +40,7 @@ fun List<EvPointsBrakeItemX>.toEvPointIds() : List<EvPointIds> {
     }
 }
 
-fun List<EvPointsBrakeItemX>.toEvPointDetails() : List<EvPointDetails> {
+fun List<EvPointsBrakeItem>.toEvPointDetails() : List<EvPointDetails> {
     return this.map {
         EvPointDetails(
             Connection = it.Connections,

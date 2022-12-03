@@ -8,7 +8,7 @@ import kotlinx.serialization.Serializable
 
 @Keep
 @Serializable
-data class ConnectionX(
+data class Connection(
     val ConnectionTypeID: Int?,
     val CurrentTypeID: Int?,
     val ID: Int?,

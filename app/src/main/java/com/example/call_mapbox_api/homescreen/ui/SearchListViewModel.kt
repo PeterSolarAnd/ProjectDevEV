@@ -1,21 +1,20 @@
 package com.example.call_mapbox_api.homescreen.ui
 
-import androidx.lifecycle.MutableLiveData
-import com.example.call_mapbox_api.model.EvPointDetails
-import androidx.lifecycle.ViewModel
-import androidx.lifecycle.ViewModelProvider
-import androidx.lifecycle.viewModelScope
+import androidx.lifecycle.*
 import androidx.lifecycle.viewmodel.CreationExtras
 import com.example.call_mapbox_api.MyApplication
 import com.example.call_mapbox_api.domain.ISearchListUseCase
+import com.example.call_mapbox_api.model.EvPointDetails
+import com.example.call_mapbox_api.util.ItemDataConverter
 import kotlinx.coroutines.launch
 
 class SearchListViewModel(
     //private val searchListRepository: SearchListRepository,
-    private val searchListUseCase: ISearchListUseCase
+    private val searchListUseCase: ISearchListUseCase,
 ) : ViewModel() {
 
     var listOfItems = MutableLiveData<List<EvPointDetails>>()
+    var connectionItems = MutableLiveData<ItemDataConverter>()
 
     init {
         viewModelScope.launch {
@@ -27,6 +26,14 @@ class SearchListViewModel(
         searchListUseCase.invoke().collect{
             items -> listOfItems.postValue(items)
         }
+    }
+
+    fun setDetailItems(item: ItemDataConverter) {
+        connectionItems.value = item
+    }
+
+    fun getDetailItems(): MutableLiveData<ItemDataConverter> {
+        return connectionItems
     }
     //Define ViewModel factory in a companion object
     companion object {
@@ -43,3 +50,12 @@ class SearchListViewModel(
         }
     }
 }
+
+/*
+interface DemoRepository {
+    fun getData(): Boolean
+}
+
+class DemoImpl : DemoRepository {
+    override fun getData() = false
+}*/
