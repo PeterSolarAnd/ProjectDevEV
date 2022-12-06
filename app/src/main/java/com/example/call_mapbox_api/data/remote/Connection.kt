@@ -1,9 +1,7 @@
-package com.example.call_mapbox_api.remote
+package com.example.call_mapbox_api.data.remote
 
 
 import androidx.annotation.Keep
-import com.example.call_mapbox_api.ConnectionList
-import com.example.call_mapbox_api.model.EvPointIds
 import kotlinx.serialization.Serializable
 
 @Keep

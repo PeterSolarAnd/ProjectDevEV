@@ -1,4 +1,4 @@
-package com.example.call_mapbox_api.homescreen.ui
+package com.example.call_mapbox_api.ui.searchscreen
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -11,21 +11,19 @@ import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
-import androidx.navigation.fragment.NavHostFragment
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.example.call_mapbox_api.R
 import com.example.call_mapbox_api.databinding.FragmentSearchListBinding
-import com.example.call_mapbox_api.homescreen.data.SearchRecycleAdapter
 import com.example.call_mapbox_api.model.EvPointDetails
-import com.example.call_mapbox_api.util.itemDataConverter
+import com.example.call_mapbox_api.model.itemDataConverter
 import kotlinx.coroutines.launch
 
 class SearchListFragment : Fragment() {
 
     private val viewModel: SearchListViewModel by activityViewModels { SearchListViewModel.Factory }
-    //private var viewModel: SearchListViewModel = ViewModelProvider(this)[SearchListViewModel::class.java]
-    private var fragmentSearchlistBinding: FragmentSearchListBinding? = null
+    private var fragmentSearchListBinding: FragmentSearchListBinding? = null
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -34,7 +32,7 @@ class SearchListFragment : Fragment() {
         // Inflate the layout for this fragment
         val binding = FragmentSearchListBinding.inflate(inflater, container, false)
         val view = binding.root
-        fragmentSearchlistBinding = binding
+        fragmentSearchListBinding = binding
         val recyclerView = view.findViewById<RecyclerView>(R.id.recycle_search)
         var t = 0
         var f = true
@@ -56,26 +54,27 @@ class SearchListFragment : Fragment() {
         viewLifecycleOwner
             .lifecycleScope
             .launch {
-            repeatOnLifecycle(Lifecycle.State.STARTED) {
-                viewModel.listOfItems.observe(viewLifecycleOwner) {
-                    val adapter = SearchRecycleAdapter(
-                        it, object : SearchRecycleAdapter.OnAdapterListener {
-                        override fun onClick(address: EvPointDetails) {
-                            viewModel.setDetailItems(itemDataConverter(address))
-                            val navHostFragment =
-                                activity?.
-                                supportFragmentManager?.
-                                findFragmentById(R.id.nav_host_fragment) as NavHostFragment
-                            val navController = navHostFragment.navController
-                            navController.navigate(R.id.detailFragment)
-                        }
-                    })
-                    recyclerView.layoutManager =
-                        StaggeredGridLayoutManager(1, StaggeredGridLayoutManager.VERTICAL)
-                    recyclerView.adapter = adapter
+                repeatOnLifecycle(Lifecycle.State.STARTED) {
+                    viewModel.listOfItems.observe(viewLifecycleOwner) {
+                        val adapter = SearchRecycleAdapter(
+                            it, object : SearchRecycleAdapter.OnAdapterListener {
+                                override fun onClick(address: EvPointDetails) {
+                                    viewModel.setDetailItems(itemDataConverter(address))
+                                    val action =
+                                        SearchListFragmentDirections
+                                            .actionSearchlistFragmentToDetailFragment()
+                                    view.findNavController().navigate(action)
+                                }
+                            })
+                        recyclerView.layoutManager =
+                            StaggeredGridLayoutManager(
+                                1,
+                                StaggeredGridLayoutManager.VERTICAL
+                            )
+                        recyclerView.adapter = adapter
+                    }
                 }
             }
-        }
         return view
     }
 }

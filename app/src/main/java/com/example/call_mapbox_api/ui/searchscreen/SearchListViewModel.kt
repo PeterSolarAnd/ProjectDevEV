@@ -1,11 +1,11 @@
-package com.example.call_mapbox_api.homescreen.ui
+package com.example.call_mapbox_api.ui.searchscreen
 
 import androidx.lifecycle.*
 import androidx.lifecycle.viewmodel.CreationExtras
 import com.example.call_mapbox_api.MyApplication
 import com.example.call_mapbox_api.domain.ISearchListUseCase
 import com.example.call_mapbox_api.model.EvPointDetails
-import com.example.call_mapbox_api.util.ItemDataConverter
+import com.example.call_mapbox_api.model.ItemDataConverter
 import kotlinx.coroutines.launch
 
 class SearchListViewModel(
@@ -24,8 +24,8 @@ class SearchListViewModel(
 
     suspend fun getListUseCase() {
         searchListUseCase.invoke().collect{
-            items -> listOfItems.postValue(items)
-        }
+                items -> listOfItems.postValue(items)
+                    }
     }
 
     fun setDetailItems(item: ItemDataConverter) {
@@ -50,12 +50,3 @@ class SearchListViewModel(
         }
     }
 }
-
-/*
-interface DemoRepository {
-    fun getData(): Boolean
-}
-
-class DemoImpl : DemoRepository {
-    override fun getData() = false
-}*/

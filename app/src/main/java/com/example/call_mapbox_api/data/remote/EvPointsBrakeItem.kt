@@ -1,14 +1,11 @@
-package com.example.call_mapbox_api.remote
+package com.example.call_mapbox_api.data.remote
 
 
 import androidx.annotation.Keep
 import com.example.call_mapbox_api.model.EvPointDetails
-import com.example.call_mapbox_api.model.EvPointIds
 import kotlinx.serialization.Serializable
 
 @Keep
-//@Parcelize
-//@JsonClass(generateAdapter = true)
 @Serializable
 data class EvPointsBrakeItem(
     val AddressInfo: AddressInfo,
@@ -26,40 +23,29 @@ data class EvPointsBrakeItem(
     val StatusTypeID: Int?,
     val SubmissionStatusTypeID: Int?,
     val UUID: String?,
-    val UsageCost: String?,
+    val UsageCost: String,
     val UsageTypeID: Int?
 )
-
-
-
-fun List<EvPointsBrakeItem>.toEvPointIds() : List<EvPointIds> {
-    return this.map {
-        EvPointIds(
-            ID = it.ID
-        )
-    }
-}
 
 fun List<EvPointsBrakeItem>.toEvPointDetails() : List<EvPointDetails> {
     return this.map {
         EvPointDetails(
+            AddressInfo = it.AddressInfo,
             Connection = it.Connections,
-            AddressInfo =it.AddressInfo,
+            NumberOfPoints = it.NumberOfPoints,
+            ID = it.ID,
+            StatusTypeID = it.StatusTypeID,
+            UsageCost = it.UsageCost,
+            UUID = it.UUID,
+            OperatorID = it.OperatorID,
+            IsRecentlyVerified = it.IsRecentlyVerified,
             DataProviderID = it.DataProviderID,
             DataQualityLevel = it.DataQualityLevel,
             DateCreated = it.DateCreated,
             DateLastStatusUpdate = it.DateLastStatusUpdate,
             DateLastVerified = it.DateLastVerified,
-            ID = it.ID,
-            IsRecentlyVerified = it.IsRecentlyVerified,
-            NumberOfPoints = it.NumberOfPoints,
-            OperatorID = it.OperatorID,
-            StatusTypeID = it.StatusTypeID,
-            SubmissionStatusTypeID = it.SubmissionStatusTypeID,
-            UUID = it.UUID,
-            UsageCost = it.UsageCost,
-            UsageTypeID = it.UsageTypeID
-
+            UsageTypeID = it.UsageTypeID,
+            SubmissionStatusTypeID = it.SubmissionStatusTypeID
         )
     }
 }

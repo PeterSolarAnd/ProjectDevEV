@@ -1,4 +1,4 @@
-package com.example.call_mapbox_api.homescreen.ui
+package com.example.call_mapbox_api.ui.detailscreen
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -7,20 +7,17 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
-import androidx.fragment.app.viewModels
-import androidx.lifecycle.ViewModelProvider
-import androidx.lifecycle.map
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.example.call_mapbox_api.R
 import com.example.call_mapbox_api.databinding.FragmentDetailBinding
-import com.example.call_mapbox_api.homescreen.data.DetailRecycleAdapter
+import com.example.call_mapbox_api.ui.searchscreen.SearchListViewModel
 
 
 class DetailFragment : Fragment() {
 
     private var fragmentDetailBinding: FragmentDetailBinding? = null
-    private val viewModel: SearchListViewModel by activityViewModels {SearchListViewModel.Factory}
+    private val viewModel: SearchListViewModel by activityViewModels { SearchListViewModel.Factory}
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -30,7 +27,7 @@ class DetailFragment : Fragment() {
         val binding = FragmentDetailBinding.inflate(inflater, container, false)
         val view = binding.root
         fragmentDetailBinding = binding
-        viewModel.getDetailItems().observe(viewLifecycleOwner) {
+        viewModel.getDetailItems().observe(viewLifecycleOwner) { it ->
 
             val add1 = view.findViewById<TextView>(R.id.addressline1)
             val add2 = view.findViewById<TextView>(R.id.addressline2)
