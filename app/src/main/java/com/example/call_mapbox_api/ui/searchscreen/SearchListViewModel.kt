@@ -6,10 +6,13 @@ import com.example.call_mapbox_api.MyApplication
 import com.example.call_mapbox_api.domain.ISearchListUseCase
 import com.example.call_mapbox_api.model.EvPointDetails
 import com.example.call_mapbox_api.model.ItemDataConverter
+import kotlinx.coroutines.flow.cancellable
+import kotlinx.coroutines.flow.catch
+import kotlinx.coroutines.flow.launchIn
+import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.launch
 
 class SearchListViewModel(
-    //private val searchListRepository: SearchListRepository,
     private val searchListUseCase: ISearchListUseCase,
 ) : ViewModel() {
 
@@ -18,15 +21,30 @@ class SearchListViewModel(
 
     init {
         viewModelScope.launch {
-            getListUseCase()
+            // Trigger the flow and consume its elements using collect
+            searchListUseCase.invoke()
+                .catch { exception -> println(exception) }
+                .collect { items ->
+                    listOfItems.postValue(items)
+                    // Update View with the latest favorite news
+
+                }
         }
     }
 
-    suspend fun getListUseCase() {
-        searchListUseCase.invoke().collect{
+
+    /*suspend fun getListUseCase() {
+        searchListUseCase()
+            .onEach { listOfItems.value = it }
+            .catch { println(it) }
+            .launchIn(viewModelScope)
+
+    }*/
+
+       /* searchListUseCase.invoke().collect{
                 items -> listOfItems.postValue(items)
                     }
-    }
+    }*/
 
     fun setDetailItems(item: ItemDataConverter) {
         connectionItems.value = item
