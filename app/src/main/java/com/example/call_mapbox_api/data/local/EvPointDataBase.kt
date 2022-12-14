@@ -1,14 +1,14 @@
 package com.example.call_mapbox_api.data.local
 
-import androidx.room.Database
-import androidx.room.Room
-import androidx.room.RoomDatabase
+import android.content.Context
+import androidx.room.*
 import com.example.call_mapbox_api.MyApplication
 import com.example.call_mapbox_api.model.EvPointDetails
 import kotlinx.coroutines.CoroutineScope
 
 
 @Database(entities = [EvPointDetails::class], version = 1, exportSchema = false)
+@TypeConverters(Converters::class)
 abstract class EvPointDataBase : RoomDatabase() {
 
     abstract val evPointsDao: EvPointsDao
@@ -17,8 +17,7 @@ abstract class EvPointDataBase : RoomDatabase() {
         @Volatile
         private var INSTANCE: EvPointDataBase? = null
 
-        fun getDatabase(context: MyApplication, applicationScope: CoroutineScope): EvPointDataBase {
-            // if the INSTANCE is not null, then return it,
+        fun getDatabase(context: Context): EvPointDataBase {
             // if it is, then create the database
             return INSTANCE ?: synchronized(this) {
                 val instance = Room.databaseBuilder(

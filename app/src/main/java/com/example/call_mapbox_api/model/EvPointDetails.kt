@@ -52,9 +52,9 @@ data class EvPointDetails(
     @ColumnInfo(name = "usage_type_id")
     val UsageTypeID: Int?,
 
-    @ColumnInfo(name = "address_info")
-    val AddressInfo: AddressInfo,
-
      @ColumnInfo(name = "connection")
-     val Connection: List<Connection>?
+     val Connection: List<Connection>?,
+
+    @ColumnInfo(name = "address_info")
+    val AddressInfo: AddressInfo?
 )

@@ -1,9 +1,25 @@
 package com.example.call_mapbox_api.data.local
 
 import androidx.room.TypeConverter
+import com.example.call_mapbox_api.data.remote.Connection
+import com.google.gson.Gson
+import com.google.gson.reflect.TypeToken
+import java.lang.reflect.Type
 import javax.xml.transform.Source
 
-class Converter {
+object Converters {
+    @TypeConverter
+    fun fromString(value: String?): List<Connection> {
+        val listType: Type = object : TypeToken<List<Connection?>?>() {}.type
+        return Gson().fromJson(value, listType)
+    }
+
+    @TypeConverter
+    fun fromArrayList(list: List<Connection?>?): String {
+        val gson = Gson()
+        return gson.toJson(list)
+    }
+}
 
    /* @TypeConverter
     fun fromSource(source: Source): String{
@@ -14,7 +30,6 @@ class Converter {
     fun toSource(name: String): Source{
         return Source(name, name)
     }*/
-}
 
 /*
 class ArrayListConverter {
