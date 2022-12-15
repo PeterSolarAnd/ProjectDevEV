@@ -8,7 +8,7 @@ import kotlinx.coroutines.CoroutineScope
 
 
 @Database(entities = [EvPointDetails::class], version = 1, exportSchema = false)
-@TypeConverters(Converters::class)
+@TypeConverters(ConnectionConverter::class, AddressConverter::class)
 abstract class EvPointDataBase : RoomDatabase() {
 
     abstract val evPointsDao: EvPointsDao

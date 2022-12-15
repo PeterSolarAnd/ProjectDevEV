@@ -13,8 +13,8 @@ interface EvPointsDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insert(vararg evPointsEntity: List<EvPointsBrakeItem>)
 
-    @Query("SELECT * FROM evPointsDb ORDER BY operator_id")
-    suspend fun getEvPoints(): Flow<List<EvPointsBrakeItem>>
+    @Query("SELECT * FROM evPointsDb ORDER BY ID")
+    fun getEvPoints(): Flow<List<EvPointsBrakeItem>>
 
     @Query("DELETE FROM evPointsDb")
     suspend fun deleteAll()

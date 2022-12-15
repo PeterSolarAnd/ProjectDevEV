@@ -2,6 +2,7 @@ package com.example.call_mapbox_api.model
 
 import androidx.room.ColumnInfo
 import androidx.room.Entity
+import androidx.room.Ignore
 import androidx.room.PrimaryKey
 import com.example.call_mapbox_api.data.remote.AddressInfo
 import com.example.call_mapbox_api.data.remote.Connection
