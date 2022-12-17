@@ -19,13 +19,13 @@ data class ItemDataConverter(
 
 fun itemDataConverter(address: EvPointDetails): ItemDataConverter {
     return ItemDataConverter(
-        address.AddressInfo.AddressLine1,
-        address.AddressInfo.AddressLine2,
-        address.AddressInfo.Longitude,
-        address.AddressInfo.Latitude,
-        address.AddressInfo.Title,
-        address.AddressInfo.Postcode,
-        address.AddressInfo.Town,
+        address.AddressInfo?.AddressLine1,
+        address.AddressInfo?.AddressLine2,
+        address.AddressInfo?.Longitude,
+        address.AddressInfo?.Latitude,
+        address.AddressInfo?.Title,
+        address.AddressInfo?.Postcode,
+        address.AddressInfo?.Town,
         address.UsageCost,
         address.NumberOfPoints,
         address.DateLastStatusUpdate,

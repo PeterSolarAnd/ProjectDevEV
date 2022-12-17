@@ -16,7 +16,7 @@ class SearchListUseCase (
 
     override suspend operator fun invoke(): Flow<List<EvPointDetails>> {
         return searchListRepository.fetchList().map { items ->
-            items.toEvPointDetails()
+            items
         }
             .flowOn(dispatcher)
     }

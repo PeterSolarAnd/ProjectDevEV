@@ -8,8 +8,8 @@ import kotlinx.serialization.Serializable
 @Keep
 @Serializable
 data class EvPointsBrakeItem(
-    val AddressInfo: AddressInfo,
     val Connections: List<Connection>?,
+    val AddressInfo: AddressInfo,
     val DataProviderID: Int?,
     val DataQualityLevel: Int?,
     val DateCreated: String?,

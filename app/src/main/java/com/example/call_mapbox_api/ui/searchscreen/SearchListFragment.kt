@@ -60,7 +60,7 @@ class SearchListFragment : Fragment() {
                         val adapter = SearchRecycleAdapter(
                             it, object : SearchRecycleAdapter.OnAdapterListener {
                                 override fun onClick(address: EvPointDetails) {
-                                    //viewModel.setDetailItems(itemDataConverter(address))
+                                    viewModel.setDetailItems(itemDataConverter(address))
                                     val action =
                                         SearchListFragmentDirections
                                             .actionSearchlistFragmentToDetailFragment()

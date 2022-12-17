@@ -5,16 +5,17 @@ import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
 import com.example.call_mapbox_api.data.remote.EvPointsBrakeItem
+import com.example.call_mapbox_api.model.EvPointDetails
 import kotlinx.coroutines.flow.Flow
 
 @Dao
 interface EvPointsDao {
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun insert(vararg evPointsEntity: List<EvPointsBrakeItem>)
+    fun insert(evPointDetails: List<EvPointDetails>)
 
-    @Query("SELECT * FROM evPointsDb ORDER BY ID")
-    fun getEvPoints(): Flow<List<EvPointsBrakeItem>>
+    @Query("SELECT * FROM evPointsDb")
+    fun getEvPoints(): Flow<List<EvPointDetails>>
 
     @Query("DELETE FROM evPointsDb")
     suspend fun deleteAll()

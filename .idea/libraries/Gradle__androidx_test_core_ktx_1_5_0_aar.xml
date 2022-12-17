@@ -3,8 +3,9 @@
     <CLASSES>
       <root url="file://$USER_HOME$/.gradle/caches/transforms-3/d27941de9985eafbc80c744b405ea2df/transformed/core-ktx-1.5.0/res" />
       <root url="file://$USER_HOME$/.gradle/caches/transforms-3/2155c2bab26db452af19d04294669a97/transformed/core-ktx-1.5.0/res" />
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-3/2155c2bab26db452af19d04294669a97/transformed/core-ktx-1.5.0/jars/classes.jar!/" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/2155c2bab26db452af19d04294669a97/transformed/core-ktx-1.5.0/AndroidManifest.xml" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/2f5c73e3f25de01207c2a908885c47cc/transformed/core-ktx-1.5.0/AndroidManifest.xml" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-3/2f5c73e3f25de01207c2a908885c47cc/transformed/core-ktx-1.5.0/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/2f5c73e3f25de01207c2a908885c47cc/transformed/core-ktx-1.5.0/res" />
     </CLASSES>
     <JAVADOC>
       <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/androidx.test/core-ktx/1.5.0/4426a968d4b6f9c5ff94998c9051aa3d345427a6/core-ktx-1.5.0-javadoc.jar!/" />

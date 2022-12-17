@@ -1,6 +1,5 @@
 package com.example.call_mapbox_api.data
 
-import com.example.call_mapbox_api.data.remote.EvPointsBrakeItem
 import com.example.call_mapbox_api.model.EvPointDetails
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.Flow
@@ -10,7 +9,7 @@ class EvPointDataSource(
     private val openMapApi: OpenMapApi,
     private val refreshIntervalMs: Long = 5000
 ): IEvPointDataSource {
-    override suspend fun getLatestEvPoint(): Flow<List<EvPointsBrakeItem>> {
+    override suspend fun getLatestEvPoint(): Flow<List<EvPointDetails>> {
         return flow {
             val result = openMapApi.getMaxResults()
             emit(result) // Emits the result of the request to the flow
@@ -21,5 +20,5 @@ class EvPointDataSource(
 
 // Interface that provides a way to make network requests with suspend functions
 interface IEvPointDataSource {
-    suspend fun getLatestEvPoint(): Flow<List<EvPointsBrakeItem>>
+    suspend fun getLatestEvPoint(): Flow<List<EvPointDetails>>
 }

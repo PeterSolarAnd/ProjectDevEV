@@ -2,7 +2,6 @@ package com.example.call_mapbox_api.model
 
 import androidx.room.ColumnInfo
 import androidx.room.Entity
-import androidx.room.Ignore
 import androidx.room.PrimaryKey
 import com.example.call_mapbox_api.data.remote.AddressInfo
 import com.example.call_mapbox_api.data.remote.Connection
@@ -47,7 +46,7 @@ data class EvPointDetails(
     @ColumnInfo(name = "uuid")
     val UUID: String?,
 
-    @ColumnInfo(name = "usage_cost")
+    @ColumnInfo(name = "UsageCost")
     val UsageCost: String?,
 
     @ColumnInfo(name = "usage_type_id")
@@ -56,6 +55,6 @@ data class EvPointDetails(
      @ColumnInfo(name = "connection")
      val Connection: List<Connection>?,
 
-    @ColumnInfo(name = "address_info")
+    @ColumnInfo(name = "AddressInfo")
     val AddressInfo: AddressInfo?
 )

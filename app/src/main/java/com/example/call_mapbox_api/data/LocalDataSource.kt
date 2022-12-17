@@ -1,17 +1,16 @@
 package com.example.call_mapbox_api.data
 
 import com.example.call_mapbox_api.data.local.EvPointDataBase
-import com.example.call_mapbox_api.data.local.EvPointsDao
-import com.example.call_mapbox_api.data.remote.EvPointsBrakeItem
+import com.example.call_mapbox_api.model.EvPointDetails
 import kotlinx.coroutines.flow.Flow
 
 class LocalDataSource(private val evPointDataBase: EvPointDataBase) : ILocalDataSource {
 
-    override suspend fun fetchPoints(): Flow<List<EvPointsBrakeItem>> {
+    override suspend fun fetchPoints(): Flow<List<EvPointDetails>> {
         return evPointDataBase.evPointsDao.getEvPoints()
     }
 
-    override suspend fun updatePoints(evPointsDao: List<EvPointsBrakeItem>) {
+    override suspend fun updatePoints(evPointsDao: List<EvPointDetails>) {
         evPointDataBase.evPointsDao.insert(evPointsDao)
 
     }
@@ -19,8 +18,8 @@ class LocalDataSource(private val evPointDataBase: EvPointDataBase) : ILocalData
 
 interface ILocalDataSource {
 
-    suspend fun fetchPoints(): Flow<List<EvPointsBrakeItem>>
+    suspend fun fetchPoints(): Flow<List<EvPointDetails>>
 
-    suspend fun updatePoints(evPointsDao: List<EvPointsBrakeItem>)
+    suspend fun updatePoints(evPointsDao: List<EvPointDetails>)
 }
 
