@@ -24,7 +24,6 @@ object ConnectionConverter {
 
 object AddressConverter {
 
-
     @TypeConverter
     fun fromString(value: String?): AddressInfo {
         val listType: Type = object : TypeToken<AddressInfo?>() {}.type

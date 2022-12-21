@@ -6,25 +6,19 @@ import com.example.call_mapbox_api.data.remote.toEvPointDetails
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.flow.flowOn
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.withContext
 
 class SearchListUseCase (
     private val searchListRepository: ISearchListRepository,
-    private val dispatcher: CoroutineDispatcher = Dispatchers.IO) : ISearchListUseCase {
+    private val dispatcher: CoroutineDispatcher = Dispatchers.Default) : ISearchListUseCase
+{
 
-    override suspend operator fun invoke(): Flow<List<EvPointDetails>> {
-        return searchListRepository.fetchList().map { items ->
-            items
-        }
-            .flowOn(dispatcher)
-    }
-}
-        /*withContext(dispatcher) {
+    override suspend operator fun invoke(): Flow<List<EvPointDetails>> =
+        withContext(dispatcher) {
             searchListRepository.fetchList().map { items -> items.toEvPointDetails() }
             }
-    }*/
+    }
 
 interface ISearchListUseCase {
     suspend operator fun invoke(): Flow<List<EvPointDetails>>

@@ -1,6 +1,5 @@
 package com.example.call_mapbox_api.util
 
-import android.content.Context
 import com.example.call_mapbox_api.MyApplication
 import com.example.call_mapbox_api.data.*
 import com.example.call_mapbox_api.data.local.EvPointDataBase.Companion.getInstance
@@ -14,12 +13,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 class AppContainer {
 
-    private val applicationScope = CoroutineScope(SupervisorJob())
-    //private val database by lazy { getDatabase(MyApplication(), applicationScope) }*/
-    //private val database = getInstance(MyApplication())
-
     private val database by lazy { getInstance(MyApplication.appContext) }
-
 
     fun getRetrofitResult(): Retrofit {
         val mHttpLoggingInterceptor = HttpLoggingInterceptor()
@@ -43,10 +37,6 @@ class AppContainer {
         return EvPointDataSource(getRetrofitResult().create(OpenMapApi::class.java))
     }
 
-    /*private fun getDataSourceContext(): EvPointDataBase {
-        return getDatabase(getApplicationContext())
-    }*/
-
     private fun getLocalDataSource(): LocalDataSource{
         return LocalDataSource(database)
     }
@@ -61,9 +51,5 @@ class AppContainer {
 
     private fun getRepository(): SearchListRepository {
         return SearchListRepository(getRemoteDataSource(), getLocalDataSource())
-    }
-
-    companion object {
-        lateinit var appContext: Context
     }
 }

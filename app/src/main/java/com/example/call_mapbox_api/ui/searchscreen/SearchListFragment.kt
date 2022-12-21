@@ -25,7 +25,6 @@ class SearchListFragment : Fragment() {
     private val viewModel: SearchListViewModel by activityViewModels { SearchListViewModel.Factory }
     private var fragmentSearchListBinding: FragmentSearchListBinding? = null
 
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?

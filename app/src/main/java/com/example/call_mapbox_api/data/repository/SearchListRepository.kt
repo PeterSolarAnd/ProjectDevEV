@@ -3,28 +3,27 @@ package com.example.call_mapbox_api.data.repository
 import android.util.Log
 import com.example.call_mapbox_api.data.IEvPointDataSource
 import com.example.call_mapbox_api.data.ILocalDataSource
-import com.example.call_mapbox_api.model.EvPointDetails
+import com.example.call_mapbox_api.data.remote.EvPointsBrakeItem
 import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.flow.map
-
 
 class SearchListRepository(
     private val evPointDataSource: IEvPointDataSource,
     private val localDataSource: ILocalDataSource
 ) : ISearchListRepository {
 
-    override suspend fun fetchList(): Flow<List<EvPointDetails>> {
-        try{
-            evPointDataSource.getLatestEvPoint()
-                .map { item -> localDataSource.updatePoints(item) }
-        }catch (e: Exception){
+    override suspend fun fetchList(): Flow<List<EvPointsBrakeItem>> {
+        try {
+            evPointDataSource.getLatestEvPoint().collect { items ->
+                localDataSource.updatePoints(items)
+            }
+        } catch (e: Exception) {
             Log.d("SearchListRepository", "Connection failed using local data base")
         }
         return localDataSource.fetchPoints()
-        //return evPointDataSource.getLatestEvPoint()
     }
 }
 
 interface ISearchListRepository {
-    suspend fun fetchList(): Flow<List<EvPointDetails>>
+    suspend fun fetchList(): Flow<List<EvPointsBrakeItem>>
 }
+

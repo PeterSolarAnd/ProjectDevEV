@@ -12,13 +12,11 @@ import kotlinx.coroutines.flow.Flow
 interface EvPointsDao {
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun insert(evPointDetails: List<EvPointDetails>)
+    fun insert(evPointDetails: List<EvPointsBrakeItem>)
 
     @Query("SELECT * FROM evPointsDb")
-    fun getEvPoints(): Flow<List<EvPointDetails>>
+    fun getEvPoints():  Flow<List<EvPointsBrakeItem>>
 
     @Query("DELETE FROM evPointsDb")
     suspend fun deleteAll()
-
-
 }
