@@ -2,21 +2,20 @@ package com.example.call_mapbox_api.data.local
 
 import androidx.room.TypeConverter
 import com.example.call_mapbox_api.data.remote.AddressInfo
-import com.example.call_mapbox_api.data.remote.Connection
+import com.example.call_mapbox_api.data.remote.Connections
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 import java.lang.reflect.Type
-import javax.xml.transform.Source
 
 object ConnectionConverter {
     @TypeConverter
-    fun fromString(value: String?): List<Connection> {
-        val listType: Type = object : TypeToken<List<Connection?>?>() {}.type
+    fun fromString(value: String?): List<Connections> {
+        val listType: Type = object : TypeToken<List<Connections?>?>() {}.type
         return Gson().fromJson(value, listType)
     }
 
     @TypeConverter
-    fun fromArrayList(list: List<Connection?>?): String {
+    fun fromArrayList(list: List<Connections?>?): String {
         val gson = Gson()
         return gson.toJson(list)
     }

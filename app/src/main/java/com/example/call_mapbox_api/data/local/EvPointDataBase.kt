@@ -25,38 +25,9 @@ abstract class EvPointDataBase : RoomDatabase() {
                 instance ?: buildDatabase(context).also { instance = it }
             }
         }
-        // Create and pre-populate the database. See this article for more details:
-        // https://medium.com/google-developers/7-pro-tips-for-room-fbadea4bfbd1#4785
         private fun buildDatabase(context: Context): EvPointDataBase {
             return Room.databaseBuilder(context, EvPointDataBase::class.java, "evPointsDb")
-                .addCallback(
-                    object : RoomDatabase.Callback() {
-                        override fun onCreate(db: SupportSQLiteDatabase) {
-                            super.onCreate(db)
-                            // moving to a new thread
-                            getInstance(context)
-                        }
-                    })
                 .build()
         }
     }
 }
-   /* companion object {
-        @Volatile
-        private var INSTANCE: EvPointDataBase? = null
-
-        fun getDatabase(context: Context): EvPointDataBase {
-            // if it is, then create the database
-            return INSTANCE ?: synchronized(this) {
-                val instance = Room.databaseBuilder(
-                    context,
-                    EvPointDataBase::class.java,
-                    "evPointsDb"
-                ).build()
-                INSTANCE = instance
-                // return instance
-                instance
-            }
-        }
-    }
-}*/

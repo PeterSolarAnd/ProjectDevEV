@@ -20,13 +20,19 @@
       <change beforePath="$PROJECT_DIR$/.gradle/7.3.3/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.3.3/fileHashes/fileHashes.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/7.3.3/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.3.3/fileHashes/resourceHashesCache.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/file-system.probe" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/file-system.probe" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/call_mapbox_api/MyApplication.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/call_mapbox_api/MyApplication.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/call_mapbox_api/data/EvPointDataSource.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/call_mapbox_api/data/EvPointRemoteDataSource.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/call_mapbox_api/data/LocalDataSource.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/call_mapbox_api/data/EvPointLocalDataSource.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/call_mapbox_api/data/OpenMapApi.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/call_mapbox_api/data/OpenMapApi.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/call_mapbox_api/data/local/Converter.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/call_mapbox_api/data/local/Converter.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/call_mapbox_api/data/local/EvPointDataBase.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/call_mapbox_api/data/local/EvPointDataBase.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/call_mapbox_api/data/local/EvPointsDao.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/call_mapbox_api/data/local/EvPointsDao.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/call_mapbox_api/data/remote/Connection.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/call_mapbox_api/data/remote/Connections.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/call_mapbox_api/data/remote/EvPointsBrakeItem.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/call_mapbox_api/data/remote/EvPointsBrakeItem.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/call_mapbox_api/data/repository/SearchListRepository.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/call_mapbox_api/data/repository/SearchListRepository.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/call_mapbox_api/ui/searchscreen/SearchListViewModel.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/call_mapbox_api/ui/searchscreen/SearchListViewModel.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/call_mapbox_api/model/EvPointDetails.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/call_mapbox_api/model/EvPointDetails.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/call_mapbox_api/model/ItemDataConverter.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/call_mapbox_api/model/ItemDataConverter.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/call_mapbox_api/ui/detailscreen/DetailRecycleAdapter.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/call_mapbox_api/ui/detailscreen/DetailRecycleAdapter.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/call_mapbox_api/util/AppContainer.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/call_mapbox_api/util/AppContainer.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -100,7 +106,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="android-custom-view/home/peter/.gradle/caches/modules-2/files-2.1/androidx.recyclerview/recyclerview/1.2.1/f0f93e67af3f7417bdd560d5142f6dec4fe629c3/recyclerview-1.2.1-sources.jar!/androidx/recyclerview/widget/RecyclerView.java_SELECTED" value="RecyclerView" />
     <property name="cidr.known.project.marker" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../git-project-almanac/Project-Alamanac/Call_Mapbox_API" />
+    <property name="last_opened_file_path" value="$USER_HOME$/Desktop/database" />
     <property name="settings.editor.selected.configurable" value="preferences.language.Kotlin" />
   </component>
   <component name="RecentsManager">
@@ -189,5 +195,16 @@
       </map>
     </option>
     <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/call_mapbox_api/data/repository/SearchListRepository.kt</url>
+          <line>17</line>
+          <option name="timeStamp" value="7" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

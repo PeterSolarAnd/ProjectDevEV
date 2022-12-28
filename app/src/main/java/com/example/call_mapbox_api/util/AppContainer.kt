@@ -13,7 +13,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 class AppContainer {
 
-    private val database by lazy { getInstance(MyApplication.appContext) }
+    private val dataBase by lazy { getInstance(MyApplication.appContext).evPointsDao }
 
     fun getRetrofitResult(): Retrofit {
         val mHttpLoggingInterceptor = HttpLoggingInterceptor()
@@ -33,12 +33,12 @@ class AppContainer {
         return retrofit
     }
 
-    private fun getRemoteDataSource(): EvPointDataSource {
-        return EvPointDataSource(getRetrofitResult().create(OpenMapApi::class.java))
+    private fun getRemoteDataSource(): EvPointRemoteDataSource {
+        return EvPointRemoteDataSource(getRetrofitResult().create(OpenMapApi::class.java))
     }
 
-    private fun getLocalDataSource(): LocalDataSource{
-        return LocalDataSource(database)
+    private fun getLocalDataSource(): EvPointLocalDataSource{
+        return EvPointLocalDataSource(dataBase)
     }
 
     private fun getDispatcher(): CoroutineDispatcher {

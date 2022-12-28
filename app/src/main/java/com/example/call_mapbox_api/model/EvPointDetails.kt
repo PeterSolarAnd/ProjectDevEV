@@ -1,12 +1,8 @@
 package com.example.call_mapbox_api.model
 
-import androidx.room.ColumnInfo
-import androidx.room.Entity
-import androidx.room.PrimaryKey
 import com.example.call_mapbox_api.data.remote.AddressInfo
-import com.example.call_mapbox_api.data.remote.Connection
+import com.example.call_mapbox_api.data.remote.Connections
 import com.example.call_mapbox_api.data.remote.EvPointsBrakeItem
-import kotlinx.coroutines.flow.Flow
 import kotlinx.serialization.Serializable
 
 // This class has not been used. Room using EvPointsBreakItems
@@ -28,5 +24,30 @@ data class EvPointDetails(
     val UsageCost: String?,
     val UsageTypeID: Int?,
     val AddressInfo: AddressInfo,
-    val Connection: List<Connection>?
+    val Connections: List<Connections>
 )
+
+fun List<EvPointDetails>.toEvPointsBreakItems() : List<EvPointsBrakeItem> {
+    return this.map {
+        EvPointsBrakeItem(
+            AddressInfo = it.AddressInfo,
+            Connections = it.Connections,
+            NumberOfPoints = it.NumberOfPoints,
+            ID = it.ID,
+            StatusTypeID = it.StatusTypeID,
+            UsageCost = it.UsageCost,
+            UUID = it.UUID,
+            OperatorID = it.OperatorID,
+            IsRecentlyVerified = it.IsRecentlyVerified,
+            DataProviderID = it.DataProviderID,
+            DataQualityLevel = it.DataQualityLevel,
+            DateCreated = it.DateCreated,
+            DateLastStatusUpdate = it.DateLastStatusUpdate,
+            DateLastVerified = it.DateLastVerified,
+            UsageTypeID = it.UsageTypeID,
+            SubmissionStatusTypeID = it.SubmissionStatusTypeID
+        )
+    }
+}
+
+

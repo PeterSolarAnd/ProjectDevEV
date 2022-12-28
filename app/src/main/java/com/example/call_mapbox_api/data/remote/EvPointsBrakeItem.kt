@@ -55,7 +55,7 @@ data class EvPointsBrakeItem(
     val UsageTypeID: Int?,
 
     @ColumnInfo(name = "connection")
-    val Connections: List<Connection>?,
+    val Connections: List<Connections>,
 
     @ColumnInfo(name = "address_info")
     val AddressInfo: AddressInfo
@@ -66,7 +66,7 @@ fun List<EvPointsBrakeItem>.toEvPointDetails() : List<EvPointDetails> {
     return this.map {
         EvPointDetails(
             AddressInfo = it.AddressInfo,
-            Connection = it.Connections,
+            Connections = it.Connections,
             NumberOfPoints = it.NumberOfPoints,
             ID = it.ID,
             StatusTypeID = it.StatusTypeID,
