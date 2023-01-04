@@ -8,7 +8,6 @@ import android.view.ViewGroup
 import android.view.inputmethod.InputMethodManager
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.activityViewModels
-import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
@@ -27,7 +26,7 @@ import kotlinx.coroutines.launch
 class SearchListFragment : Fragment() {
 
     //private val viewModel: SearchListViewModel by activityViewModels { SearchListViewModel.Factory }
-    private val viewModel: SearchListViewModel by viewModels()
+    private val viewModel: SearchListViewModel by activityViewModels()
 
     private var fragmentSearchListBinding: FragmentSearchListBinding? = null
 
