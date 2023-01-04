@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import android.view.inputmethod.InputMethodManager
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.activityViewModels
+import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
@@ -18,11 +19,16 @@ import com.example.call_mapbox_api.R
 import com.example.call_mapbox_api.databinding.FragmentSearchListBinding
 import com.example.call_mapbox_api.model.EvPointDetails
 import com.example.call_mapbox_api.model.itemDataConverter
+import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 
+
+@AndroidEntryPoint
 class SearchListFragment : Fragment() {
 
-    private val viewModel: SearchListViewModel by activityViewModels { SearchListViewModel.Factory }
+    //private val viewModel: SearchListViewModel by activityViewModels { SearchListViewModel.Factory }
+    private val viewModel: SearchListViewModel by viewModels()
+
     private var fragmentSearchListBinding: FragmentSearchListBinding? = null
 
     override fun onCreateView(
