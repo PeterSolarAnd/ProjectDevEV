@@ -4,9 +4,6 @@ import com.example.call_mapbox_api.data.EvPointLocalDataSource
 import com.example.call_mapbox_api.data.EvPointRemoteDataSource
 import com.example.call_mapbox_api.data.IEvPointLocalDataSource
 import com.example.call_mapbox_api.data.IEvPointRemoteDataSource
-import com.example.call_mapbox_api.domain.ISearchListUseCase
-import com.example.call_mapbox_api.domain.SearchListUseCase
-import com.example.call_mapbox_api.ui.searchscreen.SearchListViewModel
 import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn
@@ -15,11 +12,7 @@ import javax.inject.Singleton
 
 @InstallIn(SingletonComponent::class)
 @Module
-abstract class LoggingDatabaseModule {
-
-    @Singleton
-    @Binds
-    abstract fun bindSearchListUseCase(impl: SearchListUseCase): ISearchListUseCase
+abstract class DataSourceModule {
 
     @Singleton
     @Binds
