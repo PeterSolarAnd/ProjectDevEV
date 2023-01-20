@@ -4,7 +4,6 @@ import com.example.call_mapbox_api.data.remote.AddressInfo
 import com.example.call_mapbox_api.data.remote.Connections
 import com.example.call_mapbox_api.data.remote.EvPointsEntity
 import com.example.call_mapbox_api.data.repository.ISearchListRepository
-import com.example.call_mapbox_api.model.toEvPointsBreakItems
 import kotlinx.coroutines.*
 import kotlinx.coroutines.flow.*
 import kotlinx.coroutines.test.*
@@ -34,7 +33,7 @@ class SearchListUseCaseTest {
         val fakeAddressInfo = AddressInfo(
             AddressLine1 = "add1",
             AddressLine2 = "add2",
-            CountryID = 4, 
+            CountryID = 4,
             DistanceUnit = 5,
             Distance = 3.4,
             ID = 4,
@@ -58,7 +57,7 @@ class SearchListUseCaseTest {
             StatusTypeID = 8
         )
         val fakeEvPointsEntity = EvPointsEntity(
-            ID =4,
+            ID = 4,
             DateLastVerified = "Datalast",
             DataProviderID = 5,
             DataQualityLevel = 8,
@@ -79,13 +78,14 @@ class SearchListUseCaseTest {
             emit(listOf(fakeEvPointsEntity))
         }
     }
+
     @OptIn(ExperimentalCoroutinesApi::class)
     @Test
     fun `Convert EvPointEntity to EvPointDetails and check one item`() {
         runTest {
             `when`(searchListRepository.fetchList()).thenReturn(fakeEvPointsEntity())
             val actual = searchListUseCase.getEvPointDetails().toList()[0]
-                .toEvPointsBreakItems().toList().map { it.NumberOfPoints }
+                .toList().map { it.NumberOfPoints }
             val expected = fakeEvPointsEntity().toList()[0].map { it.NumberOfPoints }
             assertEquals(expected, actual)
         }
