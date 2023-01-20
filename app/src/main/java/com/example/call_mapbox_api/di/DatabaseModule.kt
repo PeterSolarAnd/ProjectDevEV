@@ -45,7 +45,7 @@ object DatabaseModule {
 
     @Provides
     @Singleton
-    fun providesDefaultDispatcher(): CoroutineDispatcher = Dispatchers.Unconfined
+    fun providesDefaultDispatcher(): CoroutineDispatcher = Dispatchers.Default
 
     @Provides
     fun provideEvPointsDao(database: EvPointDataBase): EvPointsDao {

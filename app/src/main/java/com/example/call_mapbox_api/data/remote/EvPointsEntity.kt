@@ -11,7 +11,7 @@ import kotlinx.serialization.Serializable
 @Keep
 @Serializable
 @Entity(tableName = "evPointsDb")
-data class EvPointsBrakeItem(
+data class EvPointsEntity(
     @PrimaryKey(autoGenerate = false)
     val ID: Int?,
 
@@ -62,7 +62,7 @@ data class EvPointsBrakeItem(
 )
 
 
-fun List<EvPointsBrakeItem>.toEvPointDetails() : List<EvPointDetails> {
+fun List<EvPointsEntity>.toEvPointDetails() : List<EvPointDetails> {
     return this.map {
         EvPointDetails(
             AddressInfo = it.AddressInfo,
