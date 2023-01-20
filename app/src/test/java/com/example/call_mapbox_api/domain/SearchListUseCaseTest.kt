@@ -32,48 +32,48 @@ class SearchListUseCaseTest {
     private fun fakeEvPointsEntity(): Flow<List<EvPointsEntity>> {
 
         val fakeAddressInfo = AddressInfo(
-            "add1",
-            "add2",
-            4,
-            5,
-            3.4,
-            4,
-            5.6,
-            3.2,
-            "postcode",
-            "state",
-            "title",
-            "town"
+            AddressLine1 = "add1",
+            AddressLine2 = "add2",
+            CountryID = 4, 
+            DistanceUnit = 5,
+            Distance = 3.4,
+            ID = 4,
+            Latitude = 5.6,
+            Longitude = 3.2,
+            Postcode = "postcode",
+            StateOrProvince = "state",
+            Title = "title",
+            Town = "town"
         )
 
         val fakeConnetion = Connections(
-            3,
-            4,
-            7,
-            7,
-            9,
-            0,
-            1.4,
-            8,
-            8
+            ConnectionTypeID = 3,
+            CurrentTypeID = 4,
+            ID = 7,
+            Voltage = 7,
+            Amps = 9,
+            LevelID = 0,
+            PowerKW = 1.4,
+            Quantity = 8,
+            StatusTypeID = 8
         )
         val fakeEvPointsEntity = EvPointsEntity(
-            4,
-            "Datalast",
-            5,
-            8,
-            "datacreated",
-            "date",
-            5,
-            true,
-            3,
-            5,
-            5,
-            "uuid",
-            "usagecostmoney",
-            5,
-            listOf(fakeConnetion),
-            fakeAddressInfo
+            ID =4,
+            DateLastVerified = "Datalast",
+            DataProviderID = 5,
+            DataQualityLevel = 8,
+            DateCreated = "datacreated",
+            DateLastStatusUpdate = "date",
+            NumberOfPoints = 5,
+            IsRecentlyVerified = true,
+            OperatorID = 3,
+            StatusTypeID = 5,
+            SubmissionStatusTypeID = 5,
+            UUID = "uuid",
+            UsageCost = "usagecostmoney",
+            UsageTypeID = 5,
+            Connections = listOf(fakeConnetion),
+            AddressInfo = fakeAddressInfo
         )
         return flow {
             emit(listOf(fakeEvPointsEntity))
