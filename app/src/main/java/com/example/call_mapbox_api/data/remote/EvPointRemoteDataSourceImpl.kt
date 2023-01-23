@@ -1,13 +1,13 @@
-package com.example.call_mapbox_api.data
+package com.example.call_mapbox_api.data.remote
 
+import com.example.call_mapbox_api.data.IEvPointRemoteDataSource
+import com.example.call_mapbox_api.data.OpenMapApi
 import com.example.call_mapbox_api.model.EvPointDetails
-import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 import javax.inject.Inject
-import javax.inject.Singleton
 
-class EvPointRemoteDataSource
+class EvPointRemoteDataSourceImpl
 @Inject constructor(private val openMapApi: OpenMapApi) : IEvPointRemoteDataSource {
     //private val refreshIntervalMs: Long = 5000
 
@@ -19,8 +19,3 @@ class EvPointRemoteDataSource
         }
     }
 }
-
-interface IEvPointRemoteDataSource {
-    suspend fun getLatestEvPoint(): Flow<List<EvPointDetails>>
-}
-

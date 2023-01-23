@@ -1,13 +1,14 @@
-package com.example.call_mapbox_api.data
+package com.example.call_mapbox_api.data.local
 
 import com.example.call_mapbox_api.data.local.EvPointsDao
 import com.example.call_mapbox_api.data.remote.EvPointsEntity
+import com.example.call_mapbox_api.data.local.IEvPointLocalDataSource
 import kotlinx.coroutines.flow.Flow
 import javax.inject.Inject
 import javax.inject.Singleton
 
 @Singleton
-class EvPointLocalDataSource @Inject constructor(
+class EvPointLocalDataSourceImpl @Inject constructor(
     private val evPointsDao: EvPointsDao
 ) :
     IEvPointLocalDataSource {
@@ -16,16 +17,8 @@ class EvPointLocalDataSource @Inject constructor(
         return evPointsDao.getEvPoints()
     }
 
-    override suspend fun updatePoints(evPoints: List<EvPointsEntity>) {
-        this.evPointsDao.insert(evPoints)
+    override suspend fun updatePoints(evPointsDao: List<EvPointsEntity>) {
+        this.evPointsDao.insert(evPointsDao)
 
     }
 }
-
-interface IEvPointLocalDataSource {
-
-    suspend fun fetchPoints(): Flow<List<EvPointsEntity>>
-
-    suspend fun updatePoints(evPointsDao: List<EvPointsEntity>)
-}
-
