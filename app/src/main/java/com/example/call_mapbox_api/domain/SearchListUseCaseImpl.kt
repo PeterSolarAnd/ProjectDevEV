@@ -10,7 +10,7 @@ import kotlinx.coroutines.withContext
 import javax.inject.Inject
 
 class SearchListUseCaseImpl @Inject constructor(
-    private val searchListRepository: ISearchListRepository, // Flow<List<EvPointsEntity>>
+    private val searchListRepository: ISearchListRepository,
     private val dispatcher: CoroutineDispatcher
 ) : ISearchListUseCase
 {

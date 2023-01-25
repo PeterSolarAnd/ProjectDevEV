@@ -1,5 +1,6 @@
 package com.example.call_mapbox_api.ui.searchscreen
 
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -14,8 +15,13 @@ import javax.inject.Inject
 class SearchListViewModel
 @Inject constructor(private val searchListUseCase: ISearchListUseCase) : ViewModel() {
 
-    var listOfItems = MutableLiveData<List<EvPointDetails>>()
-    var connectionItems = MutableLiveData<ItemDataConverter>()
+    private val _listOfItem = MutableLiveData<List<EvPointDetails>>()
+    val listOfItems: LiveData<List<EvPointDetails>>
+        get() = _listOfItem
+
+    private val _connectionItems = MutableLiveData<ItemDataConverter>()
+    val connectionItems: LiveData<ItemDataConverter>
+        get() = _connectionItems
 
     init {
         viewModelScope.launch {
@@ -23,19 +29,17 @@ class SearchListViewModel
         }
     }
 
-    // import androidx.lifecycle.asLiveData
-    // searchListUseCase.invoke().asLiveData()
     private suspend fun getListUseCase() {
-        searchListUseCase.invoke().collect { items ->
-            listOfItems.postValue(items)
+        searchListUseCase().collect() { items ->
+            _listOfItem.postValue(items)
         }
     }
 
     fun setDetailItems(item: ItemDataConverter) {
-        connectionItems.value = item
+        _connectionItems.value = item
     }
 
     fun getDetailItems(): MutableLiveData<ItemDataConverter> {
-        return connectionItems
+        return _connectionItems
     }
 }

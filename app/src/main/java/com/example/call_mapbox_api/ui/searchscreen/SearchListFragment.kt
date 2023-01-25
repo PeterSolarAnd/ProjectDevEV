@@ -1,5 +1,6 @@
 package com.example.call_mapbox_api.ui.searchscreen
 
+import android.content.Context
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -17,6 +18,7 @@ import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.example.call_mapbox_api.R
 import com.example.call_mapbox_api.databinding.FragmentSearchListBinding
 import com.example.call_mapbox_api.model.EvPointDetails
+import com.example.call_mapbox_api.util.hideKeyboard
 import com.example.call_mapbox_api.util.itemDataConverter
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
@@ -25,7 +27,6 @@ import kotlinx.coroutines.launch
 @AndroidEntryPoint
 class SearchListFragment : Fragment() {
 
-    //private val viewModel: SearchListViewModel by activityViewModels { SearchListViewModel.Factory }
     private val viewModel: SearchListViewModel by activityViewModels()
 
     private var fragmentSearchListBinding: FragmentSearchListBinding? = null
@@ -46,11 +47,7 @@ class SearchListFragment : Fragment() {
             override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
                 t += dy
                 if (((t > 0) || (t < 0)) and f) {
-                    val inputMethodManager =
-                        context?.getSystemService(AppCompatActivity.INPUT_METHOD_SERVICE)
-                                as InputMethodManager
-                    inputMethodManager
-                        .toggleSoftInput(InputMethodManager.HIDE_IMPLICIT_ONLY, 0)
+                    context?.let { hideKeyboard(view, it) }
                     f = false
                 }
             }

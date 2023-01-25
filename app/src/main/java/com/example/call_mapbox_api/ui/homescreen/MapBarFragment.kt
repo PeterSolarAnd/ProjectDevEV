@@ -1,6 +1,8 @@
 package com.example.call_mapbox_api.ui.homescreen
 
+import android.app.Activity
 import android.content.Context
+import android.content.Context.INPUT_METHOD_SERVICE
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -8,6 +10,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.view.inputmethod.InputMethodManager
 import android.widget.EditText
+import androidx.core.content.ContextCompat.getSystemService
 import androidx.navigation.fragment.NavHostFragment
 import com.example.call_mapbox_api.R
 import com.example.call_mapbox_api.databinding.FragmentMapbarBinding
@@ -22,6 +25,7 @@ class MapBarFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
+
         val binding = FragmentMapbarBinding.inflate(inflater, container, false)
         val view = binding.root
         fragmentMapBarBinding = binding
