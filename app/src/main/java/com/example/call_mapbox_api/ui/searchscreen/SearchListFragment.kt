@@ -1,13 +1,10 @@
 package com.example.call_mapbox_api.ui.searchscreen
 
-import android.content.Context
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.view.inputmethod.InputMethodManager
-import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
@@ -16,8 +13,8 @@ import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.example.call_mapbox_api.R
+import com.example.call_mapbox_api.data.remote.EvPointsEntity
 import com.example.call_mapbox_api.databinding.FragmentSearchListBinding
-import com.example.call_mapbox_api.model.EvPointDetails
 import com.example.call_mapbox_api.util.hideKeyboard
 import com.example.call_mapbox_api.util.itemDataConverter
 import dagger.hilt.android.AndroidEntryPoint
@@ -60,7 +57,7 @@ class SearchListFragment : Fragment() {
                     viewModel.listOfItems.observe(viewLifecycleOwner) {
                         val adapter = SearchRecycleAdapter(
                             it, object : SearchRecycleAdapter.OnAdapterListener {
-                                override fun onClick(address: EvPointDetails) {
+                                override fun onClick(address: EvPointsEntity) {
                                     viewModel.setDetailItems(itemDataConverter(address))
                                     val action =
                                         SearchListFragmentDirections

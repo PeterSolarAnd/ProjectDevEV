@@ -3,8 +3,10 @@ package com.example.call_mapbox_api.fakeData
 import com.example.call_mapbox_api.data.remote.AddressInfo
 import com.example.call_mapbox_api.data.remote.Connections
 import com.example.call_mapbox_api.model.EvPointDetails
+import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.flow
 
-fun fakeEvPointDetails(): List<EvPointDetails> {
+fun fakeEvPointDetails(): EvPointDetails {
 
     val fakeAddressInfo = AddressInfo(
         AddressLine1 = "add1",
@@ -32,25 +34,23 @@ fun fakeEvPointDetails(): List<EvPointDetails> {
         Quantity = 8,
         StatusTypeID = 8
     )
-    return listOf(
-        EvPointDetails(
-            ID = 4,
-            DateLastVerified = "Datalast",
-            DataProviderID = 5,
-            DataQualityLevel = 8,
-            DateCreated = "datacreated",
-            DateLastStatusUpdate = "date",
-            NumberOfPoints = 5,
-            IsRecentlyVerified = true,
-            OperatorID = 3,
-            StatusTypeID = 5,
-            SubmissionStatusTypeID = 5,
-            UUID = "uuid",
-            UsageCost = "usagecostmoney",
-            UsageTypeID = 5,
-            Connections = listOf(fakeConnetion),
-            AddressInfo = fakeAddressInfo
-        )
-    )
+    return EvPointDetails(
+                ID = 4,
+                DateLastVerified = "Datalast",
+                DataProviderID = 5,
+                DataQualityLevel = 8,
+                DateCreated = "datacreated",
+                DateLastStatusUpdate = "date",
+                NumberOfPoints = 5,
+                IsRecentlyVerified = true,
+                OperatorID = 3,
+                StatusTypeID = 5,
+                SubmissionStatusTypeID = 5,
+                UUID = "uuid",
+                UsageCost = "usagecostmoney",
+                UsageTypeID = 5,
+                Connections = listOf(fakeConnetion),
+                AddressInfo = fakeAddressInfo
+            )
 
 }

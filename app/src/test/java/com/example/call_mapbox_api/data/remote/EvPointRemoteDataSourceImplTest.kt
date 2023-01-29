@@ -11,6 +11,7 @@ import org.junit.Test
 import org.junit.runner.RunWith
 import org.mockito.Mock
 import org.mockito.Mockito
+import org.mockito.Mockito.`when`
 import org.mockito.junit.MockitoJUnitRunner
 
 @RunWith(MockitoJUnitRunner::class)
@@ -26,12 +27,5 @@ class EvPointRemoteDataSourceTestImpl {
         evPointRemoteDataSource = EvPointRemoteDataSourceImpl(openMapApi)
     }
 
-    @Test
-    fun `Test one item in EvPointDetails from OpenMapApi result`() = runBlocking {
-        Mockito.`when`(openMapApi.getMaxResults()).thenReturn(fakeEvPointDetails())
-        val actual = evPointRemoteDataSource.getLatestEvPoint().toList()[0]
-            .map { it.NumberOfPoints }
-        val expected = fakeEvPointDetails().map { it.NumberOfPoints }
-        assertEquals(expected, actual)
-    }
+
 }

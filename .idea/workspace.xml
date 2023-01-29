@@ -23,10 +23,19 @@
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/file-system.probe" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/file-system.probe" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/call_mapbox_api/data/OpenMapApi.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/call_mapbox_api/data/OpenMapApi.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/call_mapbox_api/data/remote/EvPointRemoteDataSourceImpl.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/call_mapbox_api/data/remote/EvPointRemoteDataSourceImpl.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/call_mapbox_api/domain/ISearchListUseCase.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/call_mapbox_api/domain/ISearchListUseCase.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/call_mapbox_api/domain/SearchListUseCaseImpl.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/call_mapbox_api/domain/SearchListUseCaseImpl.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/call_mapbox_api/ui/homescreen/MapBarFragment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/call_mapbox_api/ui/homescreen/MapBarFragment.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/call_mapbox_api/ui/searchscreen/SearchListFragment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/call_mapbox_api/ui/searchscreen/SearchListFragment.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/call_mapbox_api/ui/searchscreen/SearchListViewModel.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/call_mapbox_api/ui/searchscreen/SearchListViewModel.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/call_mapbox_api/ui/searchscreen/SearchRecycleAdapter.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/call_mapbox_api/ui/searchscreen/SearchRecycleAdapter.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/call_mapbox_api/util/ItemDataConverter.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/call_mapbox_api/util/ItemDataConverter.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/test/java/com/example/call_mapbox_api/data/remote/EvPointRemoteDataSourceImplTest.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/test/java/com/example/call_mapbox_api/data/remote/EvPointRemoteDataSourceImplTest.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/test/java/com/example/call_mapbox_api/data/repository/SearchListRepositoryImplTest.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/test/java/com/example/call_mapbox_api/data/repository/SearchListRepositoryImplTest.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/test/java/com/example/call_mapbox_api/domain/SearchListUseCaseImplTest.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/test/java/com/example/call_mapbox_api/domain/SearchListUseCaseImplTest.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/test/java/com/example/call_mapbox_api/fakeData/fakeEvPointDetails.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/test/java/com/example/call_mapbox_api/fakeData/fakeEvPointDetails.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/test/java/com/example/call_mapbox_api/fakeData/fakeEvPointsEntity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/test/java/com/example/call_mapbox_api/fakeData/fakeEvPointsEntity.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -67,8 +76,8 @@
         <option value="Kotlin Object" />
         <option value="layoutResourceFile" />
         <option value="Kotlin File" />
-        <option value="Kotlin Class" />
         <option value="JUnit4 Test Class" />
+        <option value="Kotlin Class" />
       </list>
     </option>
   </component>
@@ -101,7 +110,7 @@
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit4" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit4" value="" />
     <property name="last_directory_selection" value="$PROJECT_DIR$/app/src/test/java/com/example/call_mapbox_api/data" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/app/src/main/java/com/example/call_mapbox_api/util" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../git-project-almanac/Activity with Viewmodel flow" />
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.17" />
     <property name="project.structure.side.proportion" value="0.0" />
@@ -193,7 +202,7 @@
         <option name="Android.Gradle.BeforeRunTask" enabled="true" />
       </method>
     </configuration>
-    <configuration name="EvPointRemoteDataSourceTestImpl.Test one item in EvPointDetails from OpenMapApi result" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="SearchListRepositoryTestImpl.fetchList() should return data from localDataSource after updating it with data from evPointDataSource" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -206,7 +215,7 @@
           <list>
             <option value=":app:testDebugUnitTest" />
             <option value="--tests" />
-            <option value="&quot;com.example.call_mapbox_api.data.remote.EvPointRemoteDataSourceTestImpl.Test one item in EvPointDetails from OpenMapApi result&quot;" />
+            <option value="&quot;com.example.call_mapbox_api.data.repository.SearchListRepositoryTestImpl.fetchList() should return data from localDataSource after updating it with data from evPointDataSource&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -216,7 +225,7 @@
       <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
     </configuration>
-    <configuration name="EvPointRemoteDataSourceTest.Test one item in EvPointDetails from OpenMapApi result (1)" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="SearchListRepositoryTestImpl.return data from localDataSource after updating it with data from evPointDataSource" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -229,7 +238,7 @@
           <list>
             <option value=":app:testDebugUnitTest" />
             <option value="--tests" />
-            <option value="&quot;com.example.call_mapbox_api.data.EvPointRemoteDataSourceTest.Test one item in EvPointDetails from OpenMapApi result&quot;" />
+            <option value="&quot;com.example.call_mapbox_api.data.repository.SearchListRepositoryTestImpl.return data from localDataSource after updating it with data from evPointDataSource&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -239,7 +248,7 @@
       <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
     </configuration>
-    <configuration name="SearchListRepositoryTestImpl.Test localDataSource entities and verify one item" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="chatGPT.fetchList() should return data from localDataSource after updating it with data from evPointDataSource (1)" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -252,7 +261,7 @@
           <list>
             <option value=":app:testDebugUnitTest" />
             <option value="--tests" />
-            <option value="&quot;com.example.call_mapbox_api.data.repository.SearchListRepositoryTestImpl.Test localDataSource entities and verify one item&quot;" />
+            <option value="&quot;com.example.call_mapbox_api.data.repository.chatGPT.fetchList() should return data from localDataSource after updating it with data from evPointDataSource&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -262,7 +271,7 @@
       <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
     </configuration>
-    <configuration name="SearchListRepositoryTest.Test localDataSource entities and verify one item" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="chatGPT.fetchList() should return data from localDataSource when evPointDataSource throws an exception" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -275,7 +284,7 @@
           <list>
             <option value=":app:testDebugUnitTest" />
             <option value="--tests" />
-            <option value="&quot;com.example.call_mapbox_api.data.repository.SearchListRepositoryTest.Test localDataSource entities and verify one item&quot;" />
+            <option value="&quot;com.example.call_mapbox_api.data.repository.chatGPT.fetchList() should return data from localDataSource when evPointDataSource throws an exception&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -285,7 +294,7 @@
       <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
     </configuration>
-    <configuration name="SearchListUseCaseTestImpl.Convert EvPointEntity to EvPointDetails and check one item" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="chatGPT.return data from localDataSource when evPointDataSource throws an exception (1)" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -298,7 +307,7 @@
           <list>
             <option value=":app:testDebugUnitTest" />
             <option value="--tests" />
-            <option value="&quot;com.example.call_mapbox_api.domain.SearchListUseCaseTestImpl.Convert EvPointEntity to EvPointDetails and check one item&quot;" />
+            <option value="&quot;com.example.call_mapbox_api.data.repository.chatGPT.return data from localDataSource when evPointDataSource throws an exception&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -310,11 +319,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Gradle.SearchListUseCaseTestImpl.Convert EvPointEntity to EvPointDetails and check one item" />
-        <item itemvalue="Gradle.EvPointRemoteDataSourceTestImpl.Test one item in EvPointDetails from OpenMapApi result" />
-        <item itemvalue="Gradle.SearchListRepositoryTestImpl.Test localDataSource entities and verify one item" />
-        <item itemvalue="Gradle.SearchListRepositoryTest.Test localDataSource entities and verify one item" />
-        <item itemvalue="Gradle.EvPointRemoteDataSourceTest.Test one item in EvPointDetails from OpenMapApi result (1)" />
+        <item itemvalue="Gradle.chatGPT.return data from localDataSource when evPointDataSource throws an exception (1)" />
+        <item itemvalue="Gradle.SearchListRepositoryTestImpl.return data from localDataSource after updating it with data from evPointDataSource" />
+        <item itemvalue="Gradle.chatGPT.fetchList() should return data from localDataSource after updating it with data from evPointDataSource (1)" />
+        <item itemvalue="Gradle.chatGPT.fetchList() should return data from localDataSource when evPointDataSource throws an exception" />
+        <item itemvalue="Gradle.SearchListRepositoryTestImpl.fetchList() should return data from localDataSource after updating it with data from evPointDataSource" />
       </list>
     </recent_temporary>
   </component>
