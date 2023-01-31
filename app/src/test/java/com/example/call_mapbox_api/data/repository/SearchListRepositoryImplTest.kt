@@ -1,6 +1,6 @@
 package com.example.call_mapbox_api.data.repository
 
-import com.example.call_mapbox_api.data.IEvPointRemoteDataSource
+import com.example.call_mapbox_api.data.remote.IEvPointRemoteDataSource
 import com.example.call_mapbox_api.data.local.IEvPointLocalDataSource
 import com.example.call_mapbox_api.fakeData.fakeEvPointDetails
 import com.example.call_mapbox_api.fakeData.fakeEvPointsEntity
@@ -11,7 +11,6 @@ import org.junit.Before
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.mockito.Mock
-import org.mockito.Mockito
 import org.mockito.Mockito.*
 import org.mockito.junit.MockitoJUnitRunner
 
@@ -46,6 +45,4 @@ class SearchListRepositoryTestImpl {
             verify(evPointRemoteDataSource, times(1)).getLatestEvPoint()
             verify(evPointLocalDataSource, times(1)).updatePoints(evPointsEntity)
         }
-
-
 }

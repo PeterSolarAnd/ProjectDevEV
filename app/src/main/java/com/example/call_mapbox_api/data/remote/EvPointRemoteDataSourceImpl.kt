@@ -1,11 +1,9 @@
 package com.example.call_mapbox_api.data.remote
 
-import com.example.call_mapbox_api.data.IEvPointRemoteDataSource
 import com.example.call_mapbox_api.data.OpenMapApi
 import com.example.call_mapbox_api.model.EvPointDetails
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
-import kotlinx.coroutines.flow.flowOn
 import javax.inject.Inject
 
 class EvPointRemoteDataSourceImpl

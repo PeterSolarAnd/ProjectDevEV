@@ -1,8 +1,6 @@
 package com.example.call_mapbox_api.data.local
 
-import com.example.call_mapbox_api.data.local.EvPointsDao
 import com.example.call_mapbox_api.data.remote.EvPointsEntity
-import com.example.call_mapbox_api.data.local.IEvPointLocalDataSource
 import kotlinx.coroutines.flow.Flow
 import javax.inject.Inject
 import javax.inject.Singleton

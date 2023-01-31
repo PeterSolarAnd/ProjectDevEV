@@ -1,4 +1,4 @@
-package com.example.call_mapbox_api.data
+package com.example.call_mapbox_api.data.remote
 
 import com.example.call_mapbox_api.model.EvPointDetails
 import kotlinx.coroutines.flow.Flow

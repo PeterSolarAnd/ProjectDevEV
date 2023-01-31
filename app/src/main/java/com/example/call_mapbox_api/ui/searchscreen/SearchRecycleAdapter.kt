@@ -61,6 +61,7 @@ class SearchRecycleAdapter(
             val bundle = Bundle()
             val intent = Intent(Intent.ACTION_VIEW, navigationIntentUri)
             intent.setPackage("com.google.android.apps.maps")
+            // not recommended to call this here
             startActivity(context, intent, bundle)
         }
         val pos = address[position]
