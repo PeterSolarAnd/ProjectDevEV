@@ -45,7 +45,7 @@ class SearchListFragment : Fragment() {
                 context?.let { hideKeyboard(view, it) }
             }
         })
-        createAdapterObserver(viewModel, view, recyclerView, viewLifecycleOwner)
+        createAdapterObserver(view, recyclerView, viewLifecycleOwner)
     }
 
     override fun onDestroyView() {
@@ -54,7 +54,6 @@ class SearchListFragment : Fragment() {
     }
 
     private fun createAdapterObserver(
-        viewModel: SearchListViewModel,
         view: View,
         recyclerView: RecyclerView,
         viewLifecycleOwner: LifecycleOwner
@@ -69,7 +68,6 @@ class SearchListFragment : Fragment() {
                             {
                                 val adapter = createSearchRecycleAdapter(
                                     it,
-                                    viewModel,
                                     ::itemDataConverter,
                                     view,
                                 )
@@ -87,7 +85,6 @@ class SearchListFragment : Fragment() {
 
     private fun createSearchRecycleAdapter(
         items: List<EvPointsEntity>,
-        viewModel: SearchListViewModel,
         itemDataConverter: (EvPointsEntity) -> ItemDataConverter,
         view: View
     ): SearchRecycleAdapter {

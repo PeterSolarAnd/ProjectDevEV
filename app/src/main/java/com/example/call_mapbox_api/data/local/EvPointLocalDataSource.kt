@@ -6,16 +6,14 @@ import javax.inject.Inject
 import javax.inject.Singleton
 
 @Singleton
-class EvPointLocalDataSourceImpl @Inject constructor(
-    private val evPointsDao: EvPointsDao
-) :
-    IEvPointLocalDataSource {
+class EvPointLocalDataSource @Inject constructor(
+    private val evPointsDao: EvPointsDao) {
 
-    override suspend fun fetchPoints(): Flow<List<EvPointsEntity>> {
+    suspend fun fetchPoints(): Flow<List<EvPointsEntity>> {
         return evPointsDao.getEvPoints()
     }
 
-    override suspend fun updatePoints(evPointsDao: List<EvPointsEntity>) {
+    suspend fun updatePoints(evPointsDao: List<EvPointsEntity>) {
         this.evPointsDao.insert(evPointsDao)
 
     }

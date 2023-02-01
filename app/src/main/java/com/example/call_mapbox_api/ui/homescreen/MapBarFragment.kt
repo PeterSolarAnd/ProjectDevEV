@@ -2,14 +2,13 @@ package com.example.call_mapbox_api.ui.homescreen
 
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.navigation.fragment.NavHostFragment
-import com.example.call_mapbox_api.R
+import androidx.fragment.app.Fragment
+import androidx.navigation.NavDirections
+import androidx.navigation.findNavController
 import com.example.call_mapbox_api.databinding.FragmentMapbarBinding
-import com.example.call_mapbox_api.util.hideKeyboard
 import com.example.call_mapbox_api.util.showKeyboard
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -25,7 +24,11 @@ class MapBarFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         _binding = FragmentMapbarBinding.inflate(inflater, container, false)
-        val view = binding.root
+        return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
         val searchBar = binding.searchbarFragment.inputSearch
         searchBar.focusable = View.NOT_FOCUSABLE
         searchBar.setOnClickListener {
@@ -33,11 +36,15 @@ class MapBarFragment : Fragment() {
                 showKeyboard(view, it)
             }
             //searchBar.focusable = View.FOCUSABLE
-            val navHostFragment =
-                activity?.supportFragmentManager?.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
-            val navController = navHostFragment.navController
-            navController.navigate(R.id.searchlistFragment)
+            view.findNavController().navigate(createMapBarFragmentDirections())
         }
-        return view
+    }
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
+    }
+
+    private fun createMapBarFragmentDirections(): NavDirections {
+        return MapBarFragmentDirections.actionMapBarFragmentToSearchlistFragment()
     }
 }
